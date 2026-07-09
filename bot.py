@@ -26,4 +26,12 @@ def run_flask():
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
 
 # دالات البوت (بأسلوب async الحديث)
-async def start(update: Update, context: ContextTypes.DEFAULT_
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text('أهلاً بك! أنا جاهز للرد.')
+
+async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_text = update.message.text
+    response = model.generate_content(user_text)
+    await update.message.reply_text(response.text)
+
+
