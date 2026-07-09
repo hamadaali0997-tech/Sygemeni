@@ -4,6 +4,9 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
 import google.generativeai as genai
 from dotenv import load_dotenv
+from flask import Flask
+from threading import Thread
+
 
 # تحميل المفاتيح
 load_dotenv()
